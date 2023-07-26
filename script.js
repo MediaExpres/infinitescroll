@@ -10,6 +10,14 @@ let photosArray = [];
 const count = 10;
 const apiUrl = `https://api.unsplash.com/photos/random/?client_id=${apiKey}&count=${count}`;
 
+// Create C
+
+function setAttributes(element, attributes) {
+    for (const key in attributes) {
+        element.setAttribute(key, attributes[key]);
+    }
+}
+ 
 // Create Elements For Links & Photos, and add that to the DOM
 
 function displayPhotos() {
@@ -17,14 +25,23 @@ function displayPhotos() {
     photosArray.forEach((photo) => {
       // create <a></a> element to link to Unsplash
       const item = document.createElement('a');
-      item.setAttribute('href', photo.links.html);  //.links.html could be seen in the array that comes from the Unsplash!
-      item.setAttribute('target', '_blank' );
-
+    //   item.setAttribute('href', photo.links.html);  //.links.html could be seen in the array that comes from the Unsplash!
+    //   item.setAttribute('target', '_blank' );
+setAttributes(item, {
+    href: photo.links.html,
+    target: '_blank'
+});
       // create <img> for photo
       const img = document.createElement('img');
-      img.setAttribute('src', photo.urls.regular); //.urls.regular could be seen in the array that comes from the Unsplash!
-      img.setAttribute('alt', photo.alt_description); // .alt_description could be seen in the array that comes from the Unsplash!
-      img.setAttribute('title', photo.alt_description);
+    //   img.setAttribute('src', photo.urls.regular); //.urls.regular could be seen in the array that comes from the Unsplash!
+    //   img.setAttribute('alt', photo.alt_description); // .alt_description could be seen in the array that comes from the Unsplash!
+    //   img.setAttribute('title', photo.alt_description);
+
+    setAttributes (img, {
+src: photo.urls.regular,
+alt: photo.alt_description,
+title: photo.alt_description,
+    });
 
       // put <img> inside <a></a> and then put both inside imageContainer 
       item.appendChild(img);
