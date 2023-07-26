@@ -7,10 +7,14 @@ let photosArray = [];
 
 // Unsplash API
 
-const count = 10;
+const count = 30;
+// const apiKey = 'API_KEY':
 const apiUrl = `https://api.unsplash.com/photos/random/?client_id=${apiKey}&count=${count}`;
 
-// Create C
+// Check if all images loaded
+function imageLoaded() {
+    console.log('image loaded');
+}
 
 function setAttributes(element, attributes) {
     for (const key in attributes) {
@@ -42,6 +46,9 @@ src: photo.urls.regular,
 alt: photo.alt_description,
 title: photo.alt_description,
     });
+// event listener, check when first 10 finished loading
+
+img.addEventListener('load', imageLoaded);
 
       // put <img> inside <a></a> and then put both inside imageContainer 
       item.appendChild(img);
