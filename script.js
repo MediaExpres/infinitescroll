@@ -35,7 +35,7 @@ function setAttributes(element, attributes) {
 function displayPhotos() {
     totalImages = photosArray.length; 
     console.log('total images: ', totalImages);
-    
+
     // Run for each object in photosArray
     photosArray.forEach((photo) => {
       // create <a></a> element to link to Unsplash
@@ -83,7 +83,7 @@ displayPhotos();
 // check if scroll is near bottom of the page, load more photos
 window.addEventListener('scroll', () => {
 // console.log('scrolled'); - shows me a number of total until reaching the bottom, mine was 250
-if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 1000) {
+if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 1000 && ready) {
 //    the following console logs allows you to calculate the size of scrolling down and when to trigger the getPhotos()
     // console.log('window.innerHeight: ', window.innerHeight);
     // console.log('window.scrollY: ', window.scrollY);
