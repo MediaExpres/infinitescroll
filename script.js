@@ -62,6 +62,20 @@ displayPhotos();
     }
 }
 
+// check if scroll is near bottom of the page, load more photos
+window.addEventListener('scroll', () => {
+// console.log('scrolled'); - shows me a number of total until reaching the bottom, mine was 250
+if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 1000) {
+//    the following console logs allows you to calculate the size of scrolling down and when to trigger the getPhotos()
+    // console.log('window.innerHeight: ', window.innerHeight);
+    // console.log('window.scrollY: ', window.scrollY);
+    // console.log('window.innerHeight+scrollY: ', window.innerHeight + window.scrollY);
+    // console.log('document.body.offsetHeight - 1000: ', document.body.offsetHeight - 1000);
+    // console.log('load more');
+    getPhotos();
+    console.log('load more');
+}
+});
 
 // On Load
 
