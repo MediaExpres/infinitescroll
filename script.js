@@ -1,4 +1,4 @@
-import { apiKey } from "./config.js";
+import { apiKey } from "../ccconfig.js";
 
 const imageContainer = document.getElementById('image-container');
 const loader = document.getElementById('loader');
